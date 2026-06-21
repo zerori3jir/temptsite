@@ -94,8 +94,8 @@ export default function Nav() {
 
       {/* Mobile fullscreen overlay */}
       <div
-        className={`fixed inset-0 bg-white z-[100] flex flex-col transition-opacity duration-300 md:hidden ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 bg-white z-[100] flex flex-col transition-all duration-500 ease-in-out md:hidden ${
+          mobileOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
         {/* Close button */}

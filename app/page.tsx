@@ -20,7 +20,7 @@ export default function Home() {
             style={{ animationDelay: "0s" }}
           />
           <div className="absolute inset-0 bg-black/60" />
-          <div className="relative z-10 h-full flex flex-col items-center justify-end pb-140 text-center px-6">
+          <div className="relative z-10 h-full flex flex-col items-center justify-end pb-20 sm:pb-60 md:pb-140 text-center px-6">
             <h1 className="text-6xl sm:text-8xl font-semibold tracking-tight text-white leading-none mb-4">
               Leo - Tempt
             </h1>
