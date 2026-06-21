@@ -1,10 +1,8 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
-    output: 'export',
-    distDir: 'dist'
-}
-module.exports = nextConfig
+const nextConfig: NextConfig = {
+  /* config options here */
 
+};
 
 export default nextConfig;
