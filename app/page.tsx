@@ -1,65 +1,93 @@
-import Image from "next/image";
+import Link from "next/link";
+import Nav from "./components/Nav";
+import AnimatedIcons from "./components/AnimatedIcons";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <>
+      <Nav />
+
+      <main>
+
+        <section className="relative h-[80vh]">
+          <video
+            src="/queensvidcut2.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-top animate-slide-up"
+            style={{ animationDelay: "0s" }}
+          />
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="relative z-10 h-full flex flex-col items-center justify-end pb-140 text-center px-6">
+            <h1 className="text-6xl sm:text-8xl font-semibold tracking-tight text-white leading-none mb-4">
+              Leo - Tempt
+            </h1>
+            <p className="text-sm tracking-widest uppercase text-white/70 mb-10">
+              Student at Queens University &nbsp;·&nbsp; Computing
+            </p>
+            <div className="flex gap-4">
+              <Link
+                href="/projects"
+                className="inline-flex px-15 py-3 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 duration-500 [transition:background-color_500ms_ease] rounded-sm"
+              >
+                My Projects
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex px-15 py-3 bg-white text-black text-sm font-medium hover:bg-neutral-300 transition-colors duration-500 rounded-sm"
+              >
+                Contact Me
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <div className="relative">
+          <svg
+            className="absolute inset-0 w-full h-full pointer-events-none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            viewBox="0 0 1440 1000"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            <defs>
+              <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="50%" stopColor="white" stopOpacity="1" />
+                <stop offset="100%" stopColor="white" stopOpacity="0" />
+              </linearGradient>
+              <mask id="fadeMask">
+                <rect width="1440" height="1000" fill="url(#fade)" />
+              </mask>
+              <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+            <g mask="url(#fadeMask)" opacity="0.55">
+              <line x1="0" y1="0" x2="560" y2="1000" stroke="hsl(0, 60%, 60%)" strokeWidth="1.5" filter="url(#glow)" className="animate-rgb" />
+              <line x1="1440" y1="0" x2="880" y2="1000" stroke="hsl(180, 60%, 60%)" strokeWidth="1.5" filter="url(#glow)" className="animate-rgb-complement" />
+              <line x1="0" y1="0" x2="560" y2="1000" stroke="hsl(0, 60%, 60%)" strokeWidth="1.5" filter="url(#glow)" className="animate-rgb" opacity="0.5" />
+              <line x1="1440" y1="0" x2="880" y2="1000" stroke="hsl(180, 60%, 60%)" strokeWidth="1.5" filter="url(#glow)" className="animate-rgb-complement" opacity="0.5" />
+            </g>
+          </svg>
+
+          <section className="border-t border-neutral-100 py-16">
+            <div className="max-w-6xl mx-auto px-8">
+              <h2 className="text-6xl font-semibold tracking-tight text-black mb-12 text-center">My Tech Stack</h2>
+              <AnimatedIcons />
+              <p className="text-s text-neutral-400 text-center pt-15">And many more...</p>
+            </div>
+          </section>
+
+          <section id="contact" className="border-t border-neutral-100 py-24">
+          </section>
         </div>
+
       </main>
-    </div>
+    </>
   );
 }
