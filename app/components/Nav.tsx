@@ -62,7 +62,7 @@ export default function Nav() {
         >
           <div className="overflow-hidden">
             <div className="max-w-6xl mx-auto px-8 py-10">
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-12">
                 {projects.map((p) => (
                   <Link
                     key={p.slug}
