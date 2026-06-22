@@ -37,7 +37,7 @@ export default function ProjectCarousel({ media }: { media: MediaItem[] }) {
                 src={item.src}
                 alt={item.alt ?? ""}
                 fill
-                className="object-cover"
+                className="object-contain"
               />
             ) : (
               <video
