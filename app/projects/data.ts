@@ -35,4 +35,21 @@ export const projects: Project[] = [
     whatILearned:
       "What did you take away? New technologies, better patterns, things you'd do differently?",
   },
+  {
+    slug: "splittrip",
+    title: "Split Trip",
+    description: "An application designed to split finances with friends during trips",
+    tags: ["Next.js", "Tailwind CSS", "TypeScript", "C#", "ASP.Net", "Electron", "Vercel"],
+    thumbnail: "/splittrip/landingpage.png",
+    media: [{type: "video", src: "/splittrip/landingpage.png"}, {type:"image", src: "/splittrip/trippage.png"}, {type:"image", src: "/splittrip/landingpage.png"}, {type:"image", src: "/splittrip/Join.png"}, {type:"image", src: "/splittrip/edittransaction.png"}, {type:"image", src: "/splittrip/Settings.png"}, {type:"image", src: "/splittrip/settlesection.png"}],
+    year: "2025",
+    github: "https://github.com/yourusername/leonsite",
+    demo: "https://yoursite.com",
+    overview:
+        "",
+    whatIBuilt:
+        "Walk through the main features. What were the interesting technical challenges and decisions?",
+    whatILearned:
+        "What did you take away? New technologies, better patterns, things you'd do differently?",
+  },
 ];
