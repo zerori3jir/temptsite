@@ -48,7 +48,7 @@ export const projects: Project[] = [
     whatILearned: "",
     stats: [
       { value: "1,500+", label: "Total Players" },
-      { value: "400–500", label: "Daily Active Users" },
+      { value: "400–500", label: "Peak Daily Active Users" },
       { value: "1 Year", label: "Active Maintenance" },
     ],
   },

@@ -42,7 +42,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
       }`}>
         <nav className="w-full px-8 h-14 flex items-center relative z-10">
           <Link onMouseEnter={() => setOpen(false)} href="/" className={`text-sm font-semibold tracking-tight ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}>
-            TEMPT
+            LEOTEMPT
           </Link>
 
           {/* Desktop links */}
@@ -132,7 +132,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
         {/* Close button */}
         <div className="flex items-center justify-between px-8 h-14 border-b border-neutral-100">
           <Link href="/" className="text-sm font-semibold tracking-tight text-neutral-900" onClick={() => setMobileOpen(false)}>
-            TEMPT
+            LEOTEMPT
           </Link>
           <button
             onClick={() => setMobileOpen(false)}
