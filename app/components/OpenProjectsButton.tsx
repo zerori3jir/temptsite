@@ -9,7 +9,7 @@ export default function OpenProjectsButton() {
   return (
     <button
       onClick={handleClick}
-      className="inline-flex px-15 py-3 bg-neutral-900 text-white text-sm font-medium hover:bg-black [transition:background-color_500ms_ease] rounded-sm"
+      className="inline-flex px-15 py-3 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 [transition:background-color_500ms_ease] rounded-sm"
     >
       My Projects
     </button>
