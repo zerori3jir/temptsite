@@ -33,7 +33,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
 
   return (
     <>
-      <header className={`border-b sticky top-0 z-50 ${open ? "transition-all duration-[630ms]" : "transition-all duration-500"} ${
+      <header onMouseLeave={() => setOpen(false)} className={`border-b sticky top-0 z-50 ${open ? "transition-all duration-[630ms]" : "transition-all duration-500"} ${
         open
           ? "bg-white border-transparent"
           : scrolled || !transparent
@@ -41,13 +41,13 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
             : "bg-transparent border-transparent"
       }`}>
         <nav className="w-full px-8 h-14 flex items-center relative z-10">
-          <Link href="/" className={`text-sm font-semibold tracking-tight ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}>
+          <Link onMouseEnter={() => setOpen(false)} href="/" className={`text-sm font-semibold tracking-tight ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}>
             TEMPT
           </Link>
 
           {/* Desktop links */}
           <ul className={`hidden md:flex gap-2 text-sm font-semibold absolute left-1/2 -translate-x-1/2 ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}>
-            <li onMouseLeave={() => setOpen(false)}>
+            <li>
               <button
                 onMouseEnter={() => setOpen(true)}
                 onClick={() => setOpen((o) => !o)}
@@ -56,7 +56,7 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
                 My Projects
               </button>
             </li>
-            <li>
+            <li onMouseEnter={() => setOpen(false)}>
               <Link
                 href="/contact"
                 className={`px-4 py-1.5 [transition:background-color_300ms_ease] rounded-sm block ${scrolled || !transparent || open ? "hover:bg-[#efefef]" : "hover:bg-white/15"}`}
