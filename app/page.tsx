@@ -1,15 +1,18 @@
 import Link from "next/link";
 import Nav from "./components/Nav";
+import ScrollHint from "./components/ScrollHint";
 import AnimatedIcons from "./components/AnimatedIcons";
+import OpenProjectsButton from "./components/OpenProjectsButton";
+import FadeIn from "./components/FadeIn";
 
 export default function Home() {
   return (
     <>
-      <Nav />
-
+      <Nav transparent />
       <main>
 
-        <section className="relative h-[80vh]">
+        {/* Section is 56px taller than the viewport so the white content below is always off-screen at scroll=0 */}
+        <section className="relative -mt-14" style={{ height: "calc(100dvh + 56px)" }}>
           <video
             src="/queensvidcut2.mp4"
             autoPlay
@@ -19,32 +22,32 @@ export default function Home() {
             className="absolute inset-0 w-full h-full object-cover object-top animate-slide-up"
             style={{ animationDelay: "0s" }}
           />
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="relative z-10 h-full flex flex-col items-center justify-end pb-20 sm:pb-60 md:pb-140 text-center px-6">
-            <h1 className="text-6xl sm:text-8xl font-semibold tracking-tight text-white leading-none mb-4">
-              Leo - Tempt
+          <div className="absolute inset-0 bg-black/45" />
+          {/* Content centred in the visible viewport area, not the extended section */}
+          <div className="relative z-10 h-dvh flex flex-col items-center justify-center mt-[-8vh] text-center px-6">
+            <h1
+              className="text-6xl sm:text-8xl font-semibold text-white leading-none mb-4"
+              style={{ letterSpacing: "-0.04em" }}
+            >
+              Leo
             </h1>
-            <p className="text-sm tracking-widest uppercase text-white/70 mb-10">
+            <p className="text-xs tracking-[0.2em] text-white/85 mb-10 font-light uppercase">
               Student at Queens University &nbsp;·&nbsp; Computing
             </p>
             <div className="flex gap-4">
-              <Link
-                href="/projects"
-                className="inline-flex px-15 py-3 bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-800 duration-500 [transition:background-color_500ms_ease] rounded-sm"
-              >
-                My Projects
-              </Link>
+              <OpenProjectsButton />
               <Link
                 href="/contact"
-                className="inline-flex px-15 py-3 bg-white text-black text-sm font-medium hover:bg-neutral-300 transition-colors duration-500 rounded-sm"
+                className="inline-flex px-15 py-3 bg-white text-black text-sm font-medium hover:bg-neutral-200 [transition:background-color_500ms_ease] rounded-sm"
               >
                 Contact Me
               </Link>
             </div>
           </div>
+          <ScrollHint />
         </section>
 
-        <div className="relative">
+        <div className="relative bg-white">
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
             xmlns="http://www.w3.org/2000/svg"
@@ -53,8 +56,8 @@ export default function Home() {
           >
             <defs>
               <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="50%" stopColor="white" stopOpacity="1" />
-                <stop offset="100%" stopColor="white" stopOpacity="0" />
+                <stop offset="25%" stopColor="white" stopOpacity="1" />
+                <stop offset="60%" stopColor="white" stopOpacity="0" />
               </linearGradient>
               <mask id="fadeMask">
                 <rect width="1440" height="1000" fill="url(#fade)" />
@@ -75,15 +78,26 @@ export default function Home() {
             </g>
           </svg>
 
-          <section className="border-t border-neutral-100 py-16">
-            <div className="max-w-6xl mx-auto px-8">
-              <h2 className="text-6xl font-semibold tracking-tight text-black mb-12 text-center">My Tech Stack</h2>
-              <AnimatedIcons />
-              <p className="text-s text-neutral-400 text-center pt-15">And many more...</p>
+          <section id="stack" className="border-t border-neutral-100 h-screen flex flex-col">
+            <div className="flex-1 flex items-center justify-center">
+              <div className="max-w-6xl mx-auto px-8 w-full">
+                <FadeIn>
+                  <h2
+                    className="text-5xl sm:text-6xl font-semibold text-black mb-20 text-center"
+                    style={{ letterSpacing: "-0.03em" }}
+                  >
+                    My Tech Stack
+                  </h2>
+                  <AnimatedIcons />
+                  <p className="text-sm text-neutral-400 text-center pt-14">and many more...</p>
+                  <p className="text-center pt-10">
+                    <Link href="/contact" className="text-sm font-medium text-neutral-900 hover:opacity-60 [transition:opacity_300ms_ease]">
+                      Get in touch →
+                    </Link>
+                  </p>
+                </FadeIn>
+              </div>
             </div>
-          </section>
-
-          <section id="contact" className="border-t border-neutral-100 py-24">
           </section>
         </div>
 

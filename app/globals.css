@@ -8,17 +8,31 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "DM Sans", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
+  overflow-x: hidden;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+}
+
+/* text selection */
+::selection {
+  background: #000;
+  color: #fff;
 }
 
 @keyframes slideUp {
@@ -33,7 +47,7 @@ html {
 }
 
 .animate-slide-up {
-  animation: slideUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: slideUp 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 @keyframes fadeSlideIn {
@@ -49,6 +63,11 @@ html {
 
 .animate-hero-image {
   animation: fadeSlideIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade-up {
+  animation: fadeSlideIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+  opacity: 0;
 }
 
 @keyframes rgbCycle {
@@ -74,3 +93,13 @@ html {
   animation: rgbCycleComplement 8s linear infinite;
   animation-fill-mode: both;
 }
+
+@keyframes scrollHint {
+  0%, 100% { opacity: 0.65; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(8px); }
+}
+
+.animate-scroll-hint {
+  animation: scrollHint 2.4s ease-in-out infinite;
+}
+

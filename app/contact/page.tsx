@@ -39,9 +39,12 @@ export default function ContactPage() {
                     </g>
                 </svg>
 
-                <div className="relative z-10 flex flex-col items-center gap-4 text-center px-8">
-                    <h1 className="text-5xl font-semibold mb-8">Let's get in touch.</h1>
-
+                <div className="relative z-10 flex flex-col items-center gap-4 text-center px-8 animate-fade-up">
+                    <div className="flex items-center gap-2 mb-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-400 inline-block" />
+                        <span className="text-xs text-neutral-400 tracking-[0.06em]">Open to internships · Summer 2026</span>
+                    </div>
+                    <h1 className="text-5xl font-semibold mb-8" style={{ letterSpacing: "-0.03em" }}>Let's get in touch.</h1>
                     <a
                         href="https://mail.google.com/mail/?view=cm&to=leo.chet1028@email.com"
                         target="_blank"
@@ -50,9 +53,7 @@ export default function ContactPage() {
                     >
                         Send me an Email
                     </a>
-
                     <p className="text-xs text-neutral-400 tracking-widest uppercase mt-2">or copy my email</p>
-
                     <CopyEmail />
                 </div>
             </div>
