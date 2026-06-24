@@ -53,7 +53,7 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "leonwebsite",
+    slug: "website",
     title: "This Website",
     description: "A personal website designed to showcase my projects.",
     tags: ["Next.js", "Tailwind CSS", "TypeScript"],
