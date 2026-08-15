@@ -10,25 +10,17 @@ export default function Home() {
     <>
       <Nav transparent />
       <main>
-
-        {/* Section is 56px taller than the viewport so the white content below is always off-screen at scroll=0 */}
         <section className="relative -mt-14" style={{ height: "calc(100dvh + 56px)" }}>
           <video
             src="/queensvidcut2.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
+            autoPlay loop muted playsInline
             className="absolute inset-0 w-full h-full object-cover object-top animate-slide-up"
             style={{ animationDelay: "0s" }}
           />
           <div className="absolute inset-0 bg-black/45" />
-          {/* Content centred in the visible viewport area, not the extended section */}
+
           <div className="relative z-10 h-dvh flex flex-col items-center justify-center mt-[-8vh] text-center px-6">
-            <h1
-              className="text-6xl sm:text-8xl font-semibold text-white leading-none mb-4"
-              style={{ letterSpacing: "-0.04em" }}
-            >
+            <h1 className="text-6xl sm:text-8xl font-semibold text-white leading-none mb-4" style={{ letterSpacing: "-0.04em" }}>
               Leo
             </h1>
             <p className="text-xs tracking-[0.2em] text-white/85 mb-10 font-light uppercase">
@@ -36,24 +28,17 @@ export default function Home() {
             </p>
             <div className="flex gap-4">
               <OpenProjectsButton />
-              <Link
-                href="/contact"
-                className="inline-flex px-15 py-3 bg-white text-black text-sm font-medium hover:bg-neutral-200 [transition:background-color_500ms_ease] rounded-sm"
-              >
+              <Link href="/contact" className="inline-flex px-15 py-3 bg-white text-black text-sm font-medium hover:bg-neutral-200 [transition:background-color_500ms_ease] rounded-sm">
                 Contact Me
               </Link>
             </div>
           </div>
+
           <ScrollHint />
         </section>
 
         <div className="relative bg-white">
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="none"
-            viewBox="0 0 1440 1000"
-          >
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1440 1000">
             <defs>
               <linearGradient id="fade" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="25%" stopColor="white" stopOpacity="1" />
@@ -82,10 +67,7 @@ export default function Home() {
             <div className="flex-1 flex items-center justify-center">
               <div className="max-w-6xl mx-auto px-8 w-full">
                 <FadeIn>
-                  <h2
-                    className="text-5xl sm:text-6xl font-semibold text-black mb-20 text-center"
-                    style={{ letterSpacing: "-0.03em" }}
-                  >
+                  <h2 className="text-5xl sm:text-6xl font-semibold text-black mb-20 text-center" style={{ letterSpacing: "-0.03em" }}>
                     My Tech Stack
                   </h2>
                   <AnimatedIcons />
@@ -100,7 +82,6 @@ export default function Home() {
             </div>
           </section>
         </div>
-
       </main>
     </>
   );

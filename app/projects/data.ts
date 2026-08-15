@@ -16,9 +16,38 @@ export type Project = {
   whatIBuilt: string;
   whatILearned: string;
   stats?: { value: string; label: string }[];
+  platforms?: string[];
 };
 
 export const projects: Project[] = [
+  {
+    slug: "chopstickhouse",
+    title: "Chopstick House London",
+    description: "Restaurant website and order management system for a London Chinese restaurant",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "React Native", "Vercel", "Google API"],
+    thumbnail: "/chopstick/chopstickmenu.png",
+    media: [
+      { type: "image", src: "/chopstick/chopstickmainpage.png" },
+      { type: "image", src: "/chopstick/chopstickmenu.png" },
+      { type: "image", src: "/chopstick/chopsticksignin.png" },
+      { type: "image", src: "/chopstick/chopstickcart.png" },
+      { type: "image", src: "/chopstick/chopstickcheckout.png" },
+      { type: "image", src: "/chopstick/chopstickconfirmorder.png" },
+      { type: "image", src: "/chopstick/chopstickincoming.png" },
+      { type: "image", src: "/chopstick/chopstickaccepted.png" },
+    ],
+    year: "2025",
+    demo: "https://chopstickhouselondon.com",
+    overview: "",
+    whatIBuilt: "",
+    whatILearned: "",
+    stats: [
+      { value: "500+", label: "Orders Processed" },
+      { value: "Live", label: "In Production" },
+      { value: "Ongoing", label: "Maintenance" },
+    ],
+    platforms: ["Customer Website", "Employee App"],
+  },
   {
     slug: "splittrip",
     title: "Split Trip",

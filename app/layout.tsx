@@ -11,11 +11,7 @@ export const metadata: Metadata = {
   description: "Personal portfolio and projects.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="h-full antialiased">
       <body className={`min-h-full bg-white text-neutral-900 ${dmSans.className}`}>

@@ -33,19 +33,25 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
 
   return (
     <>
-      <header onMouseLeave={() => setOpen(false)} className={`border-b sticky top-0 z-50 ${open ? "transition-all duration-[630ms]" : "transition-all duration-500"} ${
-        open
-          ? "bg-white border-transparent"
-          : scrolled || !transparent
-            ? "bg-white/95 backdrop-blur-sm border-neutral-200 shadow-sm"
-            : "bg-transparent border-transparent"
-      }`}>
+      <header
+        onMouseLeave={() => setOpen(false)}
+        className={`border-b sticky top-0 z-50 ${open ? "transition-all duration-[630ms]" : "transition-all duration-500"} ${
+          open
+            ? "bg-white border-transparent"
+            : scrolled || !transparent
+              ? "bg-white/95 backdrop-blur-sm border-neutral-200 shadow-sm"
+              : "bg-transparent border-transparent"
+        }`}
+      >
         <nav className="w-full px-8 h-14 flex items-center relative z-10">
-          <Link onMouseEnter={() => setOpen(false)} href="/" className={`text-sm font-semibold tracking-tight ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}>
+          <Link
+            onMouseEnter={() => setOpen(false)}
+            href="/"
+            className={`text-sm font-semibold tracking-tight ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}
+          >
             LEOTEMPT
           </Link>
 
-          {/* Desktop links */}
           <ul className={`hidden md:flex gap-2 text-sm font-semibold absolute left-1/2 -translate-x-1/2 ${open ? "text-neutral-900" : `transition-colors duration-500 ${scrolled || !transparent ? "text-neutral-900" : "text-white"}`}`}>
             <li>
               <button
@@ -66,7 +72,6 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
             </li>
           </ul>
 
-          {/* Hamburger — mobile only */}
           <button
             className="md:hidden ml-auto flex flex-col gap-1.5 p-2"
             onClick={() => setMobileOpen(true)}
@@ -78,7 +83,6 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
           </button>
         </nav>
 
-        {/* Desktop mega menu */}
         <div
           onMouseEnter={() => setOpen(true)}
           onMouseLeave={() => setOpen(false)}
@@ -103,82 +107,53 @@ export default function Nav({ transparent = false }: { transparent?: boolean }) 
                   >
                     <div className="relative w-full aspect-video bg-neutral-900 mb-3 overflow-hidden">
                       {p.thumbnail && (
-                        <Image
-                          src={p.thumbnail}
-                          alt={p.title}
-                          fill
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
+                        <Image src={p.thumbnail} alt={p.title} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
                       )}
                     </div>
-                    <p className="text-sm font-semibold text-neutral-900 group-hover:opacity-60 transition-colors">
-                      {p.title}
-                    </p>
+                    <p className="text-sm font-semibold text-neutral-900 group-hover:opacity-60 transition-colors">{p.title}</p>
                     <p className="text-xs text-neutral-400 mt-1">{p.description}</p>
                   </Link>
                 ))}
-            </div>
+              </div>
             </div>
           </div>
         </div>
       </header>
 
-      {/* Mobile fullscreen overlay */}
       <div
         className={`fixed inset-0 bg-white z-[100] flex flex-col transition-all duration-500 ease-in-out md:hidden ${
           mobileOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-4 pointer-events-none"
         }`}
       >
-        {/* Close button */}
         <div className="flex items-center justify-between px-8 h-14 border-b border-neutral-100">
           <Link href="/" className="text-sm font-semibold tracking-tight text-neutral-900" onClick={() => setMobileOpen(false)}>
             LEOTEMPT
           </Link>
-          <button
-            onClick={() => setMobileOpen(false)}
-            aria-label="Close menu"
-            className="text-2xl text-neutral-900 leading-none"
-          >
+          <button onClick={() => setMobileOpen(false)} aria-label="Close menu" className="text-2xl text-neutral-900 leading-none">
             ✕
           </button>
         </div>
 
-        {/* Links */}
         <nav className="flex flex-col px-8 pt-10">
           <button
             className="text-3xl font-semibold text-neutral-900 text-left py-5 border-b border-neutral-100"
-            onClick={() => { setMobileOpen(false); }}
+            onClick={() => setMobileOpen(false)}
           >
             My Projects
           </button>
-          <Link
-            href="/contact"
-            className="text-3xl font-semibold text-neutral-900 py-5 border-b border-neutral-100 block"
-            onClick={() => setMobileOpen(false)}
-          >
+          <Link href="/contact" className="text-3xl font-semibold text-neutral-900 py-5 border-b border-neutral-100 block" onClick={() => setMobileOpen(false)}>
             Contact
           </Link>
         </nav>
 
-        {/* Project thumbnails */}
         <div className="px-8 pt-10">
           <p className="text-xs tracking-widest uppercase text-neutral-400 mb-6">Projects</p>
           <div className="grid grid-cols-2 gap-6">
             {projects.map((p) => (
-              <Link
-                key={p.slug}
-                href={`/projects/${p.slug}`}
-                className="group"
-                onClick={() => setMobileOpen(false)}
-              >
+              <Link key={p.slug} href={`/projects/${p.slug}`} className="group" onClick={() => setMobileOpen(false)}>
                 <div className="relative w-full aspect-video bg-neutral-100 mb-2 overflow-hidden">
                   {p.thumbnail && (
-                    <Image
-                      src={p.thumbnail}
-                      alt={p.title}
-                      fill
-                      className="object-cover"
-                    />
+                    <Image src={p.thumbnail} alt={p.title} fill className="object-cover" />
                   )}
                 </div>
                 <p className="text-sm font-semibold text-neutral-900">{p.title}</p>

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import Nav from "../../components/Nav";
 import ProjectCarousel from "../../components/ProjectCarousel";
 import { projects } from "../data";
@@ -26,9 +27,17 @@ export default async function ProjectPage({
           <h1 className="text-5xl sm:text-6xl font-semibold mb-6" style={{ letterSpacing: "-0.03em" }}>
             {project.title}
           </h1>
-          <p className="text-lg text-neutral-600 leading-relaxed max-w-xl mx-auto mb-8">
+          <p className="text-lg text-neutral-600 leading-relaxed max-w-xl mx-auto mb-4">
             {project.description}
           </p>
+
+          {project.demo && (
+            <Link href={project.demo} target="_blank" rel="noopener noreferrer"
+              className="inline-block text-sm text-neutral-400 hover:text-neutral-900 [transition:color_300ms_ease] mb-8 tracking-wide">
+              {project.demo.replace("https://", "")} ↗
+            </Link>
+          )}
+
           <div className="flex flex-wrap gap-2 justify-center">
             {project.tags.map((tag) => (
               <span key={tag} className="text-xs px-3 py-1 border border-neutral-200 text-neutral-500 rounded-full">
@@ -36,6 +45,16 @@ export default async function ProjectPage({
               </span>
             ))}
           </div>
+
+          {project.platforms && (
+            <div className="flex flex-wrap gap-2 justify-center mt-4">
+              {project.platforms.map((p) => (
+                <span key={p} className="text-xs px-3 py-1 bg-neutral-900 text-white rounded-full">
+                  {p}
+                </span>
+              ))}
+            </div>
+          )}
 
           {project.stats && (
             <div className="flex flex-wrap justify-center gap-12 mt-14 pt-12 border-t border-neutral-100">
